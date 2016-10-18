@@ -25,11 +25,11 @@ public class HVAC {
 
         //This will enable us to deal with calls in the order in which they were received
 
-        todayServiceCalls = new LinkedList<ServiceCall>();
+        todayServiceCalls = new LinkedList<>();
 
         // This will be used to store a list of resolved service calls.
 
-        resolvedServiceCalls = new LinkedList<ServiceCall>();
+        resolvedServiceCalls = new LinkedList<>();
 
         scanner = new Scanner(System.in);
 
@@ -41,7 +41,7 @@ public class HVAC {
             System.out.println("2. Resolve current call");
             System.out.println("3. Print current call");
             System.out.println("4. Print all outstanding calls");
-            System.out.println("5. Print all resolved calls ");
+            System.out.println("5. Print all resolved calls ");;
             System.out.println("6. Quit");
 
             int choice = getPositiveIntInput();
@@ -147,7 +147,8 @@ public class HVAC {
 
         System.out.println("1. Add service call for furnace");
         System.out.println("2. Add service call for AC unit");
-        System.out.println("3. Quit");
+        System.out.println("3. Add service call for water heater");
+        System.out.println("4. Quit");
 
         int choice = getPositiveIntInput();
 
@@ -192,6 +193,20 @@ public class HVAC {
 
             }
             case 3: {
+                System.out.println("Enter address of water heater");
+                String address = getStringInput();
+                System.out.println("Enter description of problem");
+                String problem = getStringInput();
+                int type = 0;
+                while (type < 1 || type > 3) {
+                    System.out.println("Type of water heater?\n" +
+                            WaterHeater.WaterHeaterTypeManager.waterHeaterTypeUserChoices());
+                    //We can only choose from types defined in FurnaceTypeManager
+                    type = getPositiveIntInput();
+                }
+                WaterHeater wHeater = new WaterHeater(address, problem, new Date(), type);            }
+
+            case 4: {
                 return;
 
             }
@@ -246,8 +261,7 @@ public class HVAC {
 
     private static String getStringInput() {
 
-        String entry = scanner.nextLine();
-        return entry;
+        return scanner.nextLine();
 
     }
 }

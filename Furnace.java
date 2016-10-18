@@ -17,7 +17,6 @@ public class Furnace extends ServiceCall {
         //TODO Error checking - is this a valid furnace type?
         this.furnaceType = furnaceType;
     }
-
     @Override
     public String toString() {
 

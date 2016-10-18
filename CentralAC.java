@@ -43,6 +43,5 @@ public class CentralAC extends ServiceCall{
                 "Resolved Date = " + resolvedDateString + "\n" +
                 "Resolution = " + resolutionString + "\n" +
                 "Fee = " + feeString ;
-
     }
 }
