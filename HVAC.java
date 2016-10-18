@@ -201,7 +201,7 @@ public class HVAC {
                 while (type < 1 || type > 3) {
                     System.out.println("Type of water heater?\n" +
                             WaterHeater.WaterHeaterTypeManager.waterHeaterTypeUserChoices());
-                    //We can only choose from types defined in FurnaceTypeManager
+                    //We can only choose from types defined in WaterHeaterTypeManager
                     type = getPositiveIntInput();
                 }
                 WaterHeater wHeater = new WaterHeater(address, problem, new Date(), type);            }
